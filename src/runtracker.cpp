@@ -8,16 +8,6 @@
 
 #include "kcftracker.hpp"
 
-// use windows or linux platform
-#define windows_platform
-
-#ifdef windows_platform
-	#define ARGC_OFFSET  0
-#else
-	#include <dirent.h>
-	#define ARGC_OFFSET  1
-#endif
-
 using namespace std;
 using namespace cv;
 
@@ -33,7 +23,7 @@ int main(int argc, char* argv[]){
 	bool SILENT = true;
 	bool LAB = false;
 	
-	for (int i = ARGC_OFFSET; i < argc; i++)
+	for (int i = 0; i < argc; i++)
 	{
 		if ( strcmp (argv[i], "hog") == 0 )
 			HOG = true;
